@@ -24,7 +24,7 @@ public class Users {
     @Column(name="user_lastname")
     private String lastName;
 
-    @Column(name="user_role")
+    @JoinColumn(name="user_role")
     @OneToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     private UserRole userRole;

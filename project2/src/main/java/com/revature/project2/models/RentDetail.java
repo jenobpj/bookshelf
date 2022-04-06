@@ -15,13 +15,15 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @Data
 public class RentDetail {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
-    @Column(name="rent_id")
+    @JoinColumn(name="rent_id")
     @OneToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Rent rent_id;
-    @Column(name="book_id")
+    @JoinColumn(name="book_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Book book_id;
     @Column(name = "expiry_date")

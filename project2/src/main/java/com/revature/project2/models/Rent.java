@@ -21,12 +21,12 @@ public class Rent {
     private int id;
 
 
-    @Column(name="render_id")
+    @JoinColumn(name="render_id")
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Users render_id;
 
-    @Column(name="render_id")
+    @JoinColumn(name="render_id")
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Users liberian_id;

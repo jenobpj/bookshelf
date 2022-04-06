@@ -7,6 +7,8 @@ import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Entity
+@Table(name = "Book")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,12 +20,11 @@ public class Book {
     @Column(name="book_title")
     private String title;
 
-    @Column(name="book_author")
+    @JoinColumn(name="book_author")
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)//if author is deleted then it will also delete all their books
     private Author author;
-
-    @Column(name="book_publisher")
+    @JoinColumn(name="book_publisher")
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)//if publisher is deleted then it will also delete all their books
     private Publisher publisher;
@@ -40,7 +41,7 @@ public class Book {
     @Column(name="book_genre")
     private String genre;
 
-    @Column(name="book_status")
+    @JoinColumn(name="book_status")
     @OneToOne
     private BookStatus bookStatus;
 
