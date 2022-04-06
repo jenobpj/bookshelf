@@ -1,19 +1,48 @@
 package com.revature.project2.models;
 
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Entity
+@Table(name = "Book")
 public class Book {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name="book_isbn")
     private String isbn;
+
+    @Column(name="book_title")
     private String title;
+
+    @JoinColumn(name="book_author")
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)//if author is deleted then it will also delete all their books
     private Author author;
+    @JoinColumn(name="book_publisher")
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)//if publisher is deleted then it will also delete all their books
     private Publisher publisher;
+
+    @Column(name ="book_pages")
     private int pages;
+
+    @Column(name="publish_date")
     private Timestamp publish_date;
+
+    @Column(name="book_image")
     private String image_url;
+
+    @Column(name="book_genre")
     private String genre;
+
+    @JoinColumn(name="book_status")
+    @OneToOne
     private BookStatus bookStatus;
 
     public Book() {

@@ -1,12 +1,38 @@
 package com.revature.project2.models;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import javax.persistence.*;
+
+
+@Entity
+@Table(name="users")
+
 public class Users {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private int id;
+
+    @Column(name="user_email")
     private String email;
+
+    @Column(name="user_firstname")
     private String firstName;
+
+    @Column(name="user_lastname")
     private String lastName;
+
+    @JoinColumn(name="user_role")
+    @OneToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private UserRole userRole;
+
+    @Column(name="user_address")
     private String address;
+
+    @Column(name="user_phone")
     private String phone;
 
     public Users() {
