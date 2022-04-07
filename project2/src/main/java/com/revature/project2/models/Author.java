@@ -1,11 +1,14 @@
 package com.revature.project2.models;
 
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
 @Table(name="author")
+@NoArgsConstructor
 public class Author {
 
     @Id
@@ -31,8 +34,6 @@ public class Author {
     @Column(name = "image_url")
     private String image_url;
 
-    public Author() {
-    }
 
     public Author(int id, String firstname, String lastname, Timestamp dob, String bio, String top_work, String image_url) {
         this.id = id;

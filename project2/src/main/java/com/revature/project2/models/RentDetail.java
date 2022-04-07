@@ -17,19 +17,25 @@ import java.sql.Timestamp;
 public class RentDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name=" rentDetail_id")
     private int id;
+
     @JoinColumn(name="rent_id")
     @OneToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Rent rent_id;
+
     @JoinColumn(name="book_id")
+    @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Book book_id;
+
     @Column(name = "expiry_date")
     private Timestamp expiry_date;
+
     @Column(name="return_date")
     private  Timestamp return_date;
+
     @Column(name = "fine_amount")
     private  int fine_amount;
 
