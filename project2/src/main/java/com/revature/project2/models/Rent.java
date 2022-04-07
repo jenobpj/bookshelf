@@ -24,12 +24,12 @@ public class Rent {
     @JoinColumn(name="render_id")
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Users render_id;
+    private User render_id;
 
-    @JoinColumn(name="render_id")
+    @JoinColumn(name="liberian_id")
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Users liberian_id;
+    private User liberian_id;
 
 
    @Column(name="rent_date")

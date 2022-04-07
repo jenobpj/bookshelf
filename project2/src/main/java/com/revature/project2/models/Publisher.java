@@ -1,10 +1,13 @@
 package com.revature.project2.models;
 
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 
 @Entity
 @Table(name = "publisher")
+@NoArgsConstructor
 public class Publisher {
 
     @Id
@@ -15,8 +18,6 @@ public class Publisher {
     @Column(name="name")
     private String publisherName;
 
-    public Publisher() {
-    }
 
     public int getId() {
         return id;

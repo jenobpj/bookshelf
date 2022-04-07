@@ -1,9 +1,12 @@
 package com.revature.project2.models;
 
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user_role")
+@NoArgsConstructor
 public class UserRole {
     @Id
     @Column(name = "id")
@@ -13,8 +16,6 @@ public class UserRole {
     @Column(name = "role")
     private String userRole;
 
-    public UserRole() {
-    }
 
     public UserRole(int id, String userRole) {
         this.id = id;
